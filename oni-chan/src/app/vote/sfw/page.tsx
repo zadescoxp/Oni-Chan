@@ -9,11 +9,10 @@ export default function SFW() {
   const [data, setData] = useState("");
   const [rating, setRating] = useState(0);
   const [id, setId] = useState("");
-
   useEffect(() => {
     const getSFWImages = async () => {
       setLoading(true);
-      await fetch("http://localhost:8000/api/sfw");
+      // await fetch("http://localhost:8000/api/sfw");
       const res = await fetch("http://localhost:8000/vote/sfw").then(
         async (res) => await res.json()
       );
@@ -24,7 +23,7 @@ export default function SFW() {
     };
 
     getSFWImages();
-  }, [rating]);
+  }, []);
 
   const Hot = async () => {
     await fetch(`http://localhost:8000/vote/sfw/${id}`);
@@ -37,8 +36,17 @@ export default function SFW() {
 
   return (
     <div className="w-screen h-screen flex items-center justify-center flex-col">
-      <Link href={"/"} className="text-blue-600 absolute top-4 left-4">
+      <Link
+        href={"/"}
+        className="text-blue-500 absolute top-4 left-4 hover:text-blue-700 transition-all"
+      >
         &lt; Go Back
+      </Link>
+      <Link
+        href={"/top/sfw"}
+        className="text-red-500 font-semibold absolute top-4 right-4 text-2xl"
+      >
+        Top 25 Rated
       </Link>
       {loading ? (
         <div className="flex flex-col items-center justify-center gap-3">
