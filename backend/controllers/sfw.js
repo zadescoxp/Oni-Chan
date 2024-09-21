@@ -17,16 +17,14 @@ function getCategory(randomInt) {
   } else if (randomInt == 4) {
     return "megumin";
   } else if (randomInt == 5) {
-    return "smile";
-  } else if (randomInt == 6) {
-    return "blush";
+    return "awoo";
   } else {
     return "Error";
   }
 }
 
 const getSFWImages = async (req, res) => {
-  const randomInt = getRandomInt(1, 6);
+  const randomInt = getRandomInt(1, 5);
   const category = getCategory(randomInt);
   const response = await fetch(`https://api.waifu.pics/sfw/${category}`).then(
     async (response) => await response.json()
