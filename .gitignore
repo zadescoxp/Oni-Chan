@@ -3,35 +3,35 @@
 # dependencies
 /backend/node_modules
 /oni-chan/node_modules
-/.pnp
-.pnp.js
-.yarn/install-state.gz
+/oni-chan/.pnp
+/oni-chan/.pnp.js
+/oni-chan/.yarn/install-state.gz
 
 # testing
-/coverage
+/oni-chan/coverage
 
 # next.js
-/.next/
-/out/
+/oni-chan/.next/
+/oni-chan/out/
 
 # production
-/build
+/oni-chan/build
 
 # misc
-.DS_Store
-*.pem
+/oni-chan/.DS_Store
+/oni-chan/*.pem
 
 # debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+/oni-chan/npm-debug.log*
+/oni-chan/yarn-debug.log*
+/oni-chan/yarn-error.log*
 
 # local env files
-.env*.local
+/oni-chan/.env*.local
 
 # vercel
-.vercel
+/oni-chan/.vercel
 
 # typescript
-*.tsbuildinfo
-next-env.d.ts
+/oni-chan/*.tsbuildinfo
+/oni-chan/next-env.d.ts
