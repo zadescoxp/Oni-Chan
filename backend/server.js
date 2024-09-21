@@ -44,6 +44,26 @@ app.get("/vote/sfw/:id", async (req, res) => {
   }
 });
 
+app.get("/top/sfw", async (req, res) => {
+  try {
+    const mostRatedAnime = await Anime.find()
+      .sort({ rating: -1 })
+      .limit(25)
+      .exec();
+
+    if (mostRatedAnime) {
+      res
+        .status(200)
+        .json({ message: "Most rated anime found!", anime: mostRatedAnime });
+    } else {
+      res.status(404).json({ message: "No anime found!" });
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "Server error", error: err });
+  }
+});
+
 app.listen(8000, () => {
   console.log("Server is running...");
 });
