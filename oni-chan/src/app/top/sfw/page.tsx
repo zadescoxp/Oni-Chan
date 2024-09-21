@@ -25,10 +25,7 @@ export default function SFWTop() {
     fetchAnimes();
   }, []);
 
-  useEffect(() => {
-    // This will log when `data` has been updated
-    // console.log("Updated data:", data);
-  }, [data]);
+  useEffect(() => {}, [data]);
 
   return (
     <div className="py-24 px-10 overflow-x-hidden">
@@ -50,7 +47,7 @@ export default function SFWTop() {
             >
               <Image
                 src={item.url}
-                className="h-full w-full group-hover:scale-105 transition-all group-active:scale-125"
+                className="h-full w-full group-hover:scale-105 transition-all"
                 height={400}
                 width={300}
                 objectFit="cover"
@@ -58,7 +55,7 @@ export default function SFWTop() {
               />
               <div className="group-hover:hidden transition-all absolute top-0 left-0 bg-gradient-to-t from-black via-transparent to-transparent h-full w-full"></div>
               <p className="absolute bottom-2 left-2 text-xl font-semibold">
-                {item.rating} vote
+                {item.rating} {item.rating > 1 ? "votes" : "vote"}
               </p>
             </div>
           ))}
