@@ -12,20 +12,18 @@ function getCategory(randomInt) {
   } else if (randomInt == 2) {
     return "neko";
   } else if (randomInt == 3) {
-    return "shinobu";
+    return "trap";
   } else if (randomInt == 4) {
-    return "megumin";
-  } else if (randomInt == 5) {
-    return "awoo";
+    return "blowjob";
   } else {
     return "Error";
   }
 }
 
-const getSFWImages = async (req, res) => {
-  const randomInt = getRandomInt(1, 5);
+const getNSFWImages = async (req, res) => {
+  const randomInt = getRandomInt(1, 4);
   const category = getCategory(randomInt);
-  const response = await fetch(`https://api.waifu.pics/sfw/${category}`).then(
+  const response = await fetch(`https://api.waifu.pics/nsfw/${category}`).then(
     async (response) => await response.json()
   );
   const data = await response.url;
@@ -35,7 +33,7 @@ const getSFWImages = async (req, res) => {
   if (!findAnime) {
     const createAnime = await Anime.create({
       url: data,
-      type: "SFW",
+      type: "NSFW",
     });
     createAnime.save();
     console.log("New Anime added to the db");
@@ -45,4 +43,4 @@ const getSFWImages = async (req, res) => {
   return data;
 };
 
-export { getSFWImages };
+export { getNSFWImages };
