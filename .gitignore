@@ -28,6 +28,7 @@
 
 # local env files
 /oni-chan/.env*.local
+/backend/.env
 
 # vercel
 /oni-chan/.vercel
