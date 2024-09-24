@@ -25,10 +25,12 @@ export default function SFWTop() {
     fetchAnimes();
   }, []);
 
-  useEffect(() => {}, [data]);
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
 
   return (
-    <div className="py-24 px-10 overflow-x-hidden">
+    <div className="py-24 px-10 overflow-x-hidden max-md:px-4">
       <Link
         href={"/vote/sfw"}
         className="text-blue-500 absolute top-4 left-4 hover:text-blue-700 transition-all"
@@ -39,7 +41,7 @@ export default function SFWTop() {
         <p>Loading...</p>
       ) : (
         // <div className="flex justify-center items-start flex-wrap">
-        <div className="columns-6 max-2xl:columns-4 mx-auto space-y-4">
+        <div className="columns-6 max-2xl:columns-4 mx-auto space-y-4 max-md:columns-2">
           {data.map((item, index) => (
             <div
               key={index}
