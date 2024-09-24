@@ -10,7 +10,7 @@ export default function NSFW() {
   const [rating, setRating] = useState(0);
   const [id, setId] = useState("");
   useEffect(() => {
-    const getSFWImages = async () => {
+    const getNSFWImages = async () => {
       setLoading(true);
       // await fetch("http://localhost:8000/api/nsfw");
       const res = await fetch("http://localhost:8000/vote/nsfw").then(
@@ -44,7 +44,7 @@ export default function NSFW() {
       </Link>
       <Link
         href={"/top/nsfw"}
-        className="text-red-500 font-semibold absolute top-4 right-4 text-2xl"
+        className="text-red-500 font-semibold absolute top-4 right-4 text-2xl max-md:top-[95%] max-md:right-1/2 max-md:translate-x-1/2"
       >
         Top 25 Rated
       </Link>
@@ -73,16 +73,16 @@ export default function NSFW() {
 
           <div className="flex items-center justify-center gap-10">
             <button
-              className="bg-red-600 text-2xl font-semibold px-7 py-4 hover:bg-[#ff0000] transition-all"
-              onClick={Hot}
-            >
-              HOT 🥵
-            </button>
-            <button
               className="bg-[#e0e0e0] text-black text-2xl font-semibold px-7 py-4 hover:bg-white transition-all"
               onClick={Not}
             >
               NOT 🤢
+            </button>
+            <button
+              className="bg-red-600 text-2xl font-semibold px-7 py-4 hover:bg-[#ff0000] transition-all"
+              onClick={Hot}
+            >
+              HOT 🥵
             </button>
           </div>
         </div>
