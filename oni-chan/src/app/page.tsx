@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="flex items-center justify-center w-screen h-screen">
-      <div className="flex items-center justify-center gap-10">
+      <div className="flex items-center justify-center gap-10 max-md:flex-col">
         <Link
           href={"/vote/sfw"}
           className="flex flex-col items-center justify-center text-xl font-semibold"
@@ -13,7 +13,7 @@ export default function Home() {
             src={"/assets/anime2.png"}
             height={493}
             width={300}
-            className="h-[400px] w-auto"
+            className="h-[400px] w-auto max-md:h-[350px]"
             alt="Neko"
           />
           Safe For Work
@@ -26,7 +26,7 @@ export default function Home() {
             src={"/assets/anime3.png"}
             height={493}
             width={300}
-            className="h-[400px] w-auto"
+            className="h-[400px] w-auto max-md:h-[350px]"
             alt="Neko"
           />
           Not Safe For Work
