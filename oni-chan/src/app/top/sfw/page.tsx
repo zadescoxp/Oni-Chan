@@ -12,7 +12,9 @@ export default function SFWTop() {
     const fetchAnimes = async () => {
       setLoading(true);
       try {
-        const response = await fetch("http://localhost:8000/top/sfw");
+        const response = await fetch(
+          `http://${process.env.NEXT_PUBLIC_BACKEND}/top/sfw`
+        );
         const res = await response.json();
         setData(res.anime); // Set the fetched data in state
       } catch (error) {

@@ -12,10 +12,10 @@ export default function SFW() {
   useEffect(() => {
     const getSFWImages = async () => {
       setLoading(true);
-      // await fetch("http://localhost:8000/api/sfw");
-      const res = await fetch("http://localhost:8000/vote/sfw").then(
-        async (res) => await res.json()
-      );
+      // await fetch(`https://${process.env.NEXT_PUBLIC_BACKEND}/api/sfw`);
+      const res = await fetch(
+        `http://${process.env.NEXT_PUBLIC_BACKEND}/vote/sfw`
+      ).then(async (res) => await res.json());
       setData(res.url);
       setRating(res.rating);
       setId(res.id);

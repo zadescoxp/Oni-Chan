@@ -12,10 +12,10 @@ export default function NSFW() {
   useEffect(() => {
     const getNSFWImages = async () => {
       setLoading(true);
-      // await fetch("http://localhost:8000/api/nsfw");
-      const res = await fetch("http://localhost:8000/vote/nsfw").then(
-        async (res) => await res.json()
-      );
+      // await fetch(`https://${process.env.NEXT_PUBLIC_BACKEND}/api/nsfw`);
+      const res = await fetch(
+        `http://${process.env.NEXT_PUBLIC_BACKEND}/vote/nsfw`
+      ).then(async (res) => await res.json());
       setData(res.url);
       setRating(res.rating);
       setId(res.id);
