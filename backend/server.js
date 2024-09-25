@@ -13,7 +13,12 @@ dotenv.config();
 
 mongoose
   .connect(`${process.env.MONGODB_URI}`)
-  .then(() => console.log("Database is connected"))
+  .then(() => {
+    console.log("Database connected");
+    app.listen(process.env.PORT, () => {
+      console.log(`Server is running ...`);
+    });
+  })
   .catch((err) => console.log(err));
 
 app.get("/", (req, res) => {
@@ -114,8 +119,4 @@ app.get("/top/nsfw", async (req, res) => {
     console.log(err);
     res.status(500).json({ message: "Server error", error: err });
   }
-});
-
-app.listen(8000, () => {
-  console.log(`Server is running ...`);
 });
